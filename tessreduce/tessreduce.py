@@ -45,7 +45,10 @@ import warnings
 # nuke warnings because sigma clip is extremely annoying 
 warnings.filterwarnings("ignore")
 warnings.filterwarnings("ignore", category=RuntimeWarning) 
-warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
+try:
+	warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
+except:
+	pass
 pd.options.mode.chained_assignment = None
 with warnings.catch_warnings():
 	warnings.simplefilter("ignore")
